@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Application Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f3;
+            padding: 40px;
+        }
+        .container {
+            width: 450px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #888;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0275d8;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #025aa5;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            let name = document.forms["regForm"]["name"].value;
+            let email = document.forms["regForm"]["email"].value;
+            let phone = document.forms["regForm"]["phone"].value;
+
+            if (name == "" || email == "" || phone == "") {
+                alert("All fields are required!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Online Application Form</h2>
+
+    <form name="regForm" action="submit.php" method="POST" onsubmit="return validateForm();">
+
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Enter full name">
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter email">
+
+        <label>Phone</label>
+        <input type="text" name="phone" placeholder="Enter phone number">
+
+        <label>Course</label>
+        <select name="course">
+            <option value="BCA">BCA</option>
+            <option value="BBA">BBA</option>
+            <option value="BSc IT">BSc IT</option>
+            <option value="MCA">MCA</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</div>
+
+</body>
+</html>
